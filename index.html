@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MHRTV | Premium Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #020617;
+            color: white;
+            margin: 0;
+            overflow-x: hidden;
+            user-select: none;
+        }
+        /* Ambient Glow Background */
+        
+        .bg-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 0%, #1e3a8a33 0%, #020617 70%);
+            z-index: -1;
+        }
+        /* Laptop/TV Grid */
+        
+        .main-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        /* Premium Card Design */
+        
+        .card {
+            position: relative;
+            height: 260px;
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            text-align: left;
+        }
+        /* Focus & Hover State */
+        
+        .card:focus,
+        .card:hover {
+            outline: none;
+            transform: translateY(-12px) scale(1.02);
+            background: rgba(59, 130, 246, 0.08);
+            border-color: #3b82f6;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 20px rgba(59, 130, 246, 0.2);
+        }
+        
+        .card:focus .icon-box,
+        .card:hover .icon-box {
+            background: #3b82f6;
+            color: white;
+        }
+        
+        .icon-box {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        /* Mobile Adjustments */
+        
+        @media (max-width: 640px) {
+            .main-container {
+                grid-template-columns: 1fr;
+                padding: 1.5rem;
+            }
+            .card {
+                height: 220px;
+            }
+            .header-text {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="bg-glow"></div>
+
+    <nav class="p-6 md:px-12 flex justify-between items-center border-b border-white/5 backdrop-blur-md sticky top-0 z-50">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center font-bold text-xl">M</div>
+            <span class="text-2xl font-extrabold tracking-tighter uppercase">MHR<span class="text-blue-500">TV</span></span>
+        </div>
+        <div id="clock" class="text-sm font-medium text-gray-400 font-mono"></div>
+    </nav>
+
+    <div class="header-text px-6 md:px-12 pt-12 max-w-7xl mx-auto">
+        <h2 class="text-blue-500 font-bold uppercase tracking-widest text-xs mb-2">Exclusive Access</h2>
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Choose Your Source</h1>
+        <p class="text-gray-400 max-w-2xl">Premium streaming gateway optimized for your device. Use arrow keys for TV or touch for mobile.</p>
+    </div>
+
+    <main class="main-container">
+        <button onclick="nav('http://198.195.239.50/')" class="card focusable">
+            <div class="icon-box">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071a9.914 9.914 0 0114.142 0"></path></svg>
+            </div>
+            <span class="text-xs font-bold text-blue-400 mb-2 uppercase tracking-widest">Server Status: Online</span>
+            <h3 class="text-3xl font-bold">Main Server</h3>
+            <p class="text-gray-500 mt-1">Direct IP Backbone Access</p>
+        </button>
+
+        <button onclick="nav('https://biostar-tv-world.vercel.app/')" class="card focusable">
+            <div class="icon-box">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+            </div>
+            <span class="text-xs font-bold text-emerald-400 mb-2 uppercase tracking-widest">Vercel Edge</span>
+            <h3 class="text-3xl font-bold">Biostar World</h3>
+            <p class="text-gray-500 mt-1">Global Content Delivery Network</p>
+        </button>
+
+        <button onclick="nav('https://tv.roarzone.info/')" class="card focusable">
+            <div class="icon-box">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+            </div>
+            <span class="text-xs font-bold text-amber-400 mb-2 uppercase tracking-widest">Secure Link</span>
+            <h3 class="text-3xl font-bold">RoarZone TV</h3>
+            <p class="text-gray-500 mt-1">Sports & Information Portal</p>
+        </button>
+    </main>
+
+    <footer class="text-center p-12 text-gray-600 text-xs tracking-widest uppercase">
+        &copy; 2026 MHRTV Systems • Secure Entertainment Hub
+    </footer>
+
+    <script>
+        // Smooth Navigation
+        function nav(url) {
+            document.body.style.opacity = '0.4';
+            window.location.href = url;
+        }
+
+        // TV / Laptop Keyboard Navigation
+        const buttons = document.querySelectorAll('.focusable');
+        let currentFocus = 0;
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                currentFocus = (currentFocus + 1) % buttons.length;
+                buttons[currentFocus].focus();
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                currentFocus = (currentFocus - 1 + buttons.length) % buttons.length;
+                buttons[currentFocus].focus();
+            }
+        });
+
+        // Anti-Inspect / Security
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.onkeydown = function(e) {
+            if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74 || e.keyCode == 67)) || (e.ctrlKey && e.keyCode == 85)) {
+                return false;
+            }
+        };
+
+        // Live Clock
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('clock').innerText = now.toLocaleString();
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Auto focus for TV
+        window.onload = () => buttons[0].focus();
+    </script>
+</body>
+
+</html>
