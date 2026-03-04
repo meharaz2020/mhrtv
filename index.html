@@ -1,5 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MHRTV | Ultra Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+         :root {
+            --bg: #05070a;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-hover: rgba(255, 255, 255, 0.08);
+            --border: rgba(255, 255, 255, 0.06);
+        }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg);
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+        /* Animated Background Mesh */
+        
+        .mesh {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.15) 0px, transparent 50%);
+            z-index: -1;
+        }
+        
+        .category-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 800;
+            color: #64748b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .category-label::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+        
+        .card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 1.25rem;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+            text-align: left;
+        }
+        
+        .card:hover {
+            background: var(--glass-hover);
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px var(--accent);
+        }
+        
+        .pulse {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            position: relative;
+        }
+        
+        .pulse::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: var(--accent);
+            animation: pulse-ring 1.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+        }
+        
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(0.33);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+        
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: #000;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.5s;
+        }
+        /* Custom Accents */
+        
+        .blue {
+            --accent: #3b82f6;
+        }
+        
+        .purple {
+            --accent: #a855f7;
+        }
+        
+        .emerald {
+            --accent: #10b981;
+        }
+        
+        .amber {
+            --accent: #f59e0b;
+        }
+    </style>
+</head>
+
+<body class="p-6 md:p-12">
+
+    <div id="loader">
+        <div class="text-3xl font-bold tracking-tighter animate-pulse">MHR<span class="text-blue-500">TV</span></div>
+    </div>
+    <div class="mesh"></div>
+
+    <div class="max-w-6xl mx-auto">
+        <header class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
+            <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold mb-4">
+                    <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span></span>
+                    SYSTEM ONLINE
+                </div>
+                <h1 class="text-5xl font-extrabold tracking-tight text-white">MHR<span class="text-blue-500">TV</span> Hub</h1>
+                <p class="text-slate-400 mt-2 text-lg">Premium Streaming Infrastructure</p>
+            </div>
+            <div id="clock" class="text-3xl font-medium tracking-tighter text-slate-500 tabular-nums">00:00:00</div>
+        </header>
+
+        <div class="mb-12">
+            <h2 class="category-label">Main Infrastructure</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <button onclick="nav('http://103.144.89.251/')" class="card blue flex items-center gap-5">
+                    <div class="p-4 rounded-xl bg-blue-500/10 text-blue-500">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2"></path></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white">Main Gateway</h3>
+                        <p class="text-sm text-slate-500 font-medium">Core Server Backbone</p>
+                    </div>
+                    <div class="ml-auto pulse"></div>
+                </button>
+
+
+                <button onclick="nav('https://mhrhdtv.vercel.app/')" class="card emerald">
+                    <div class="mb-4 text-emerald-500">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Bangladesh TV</h3>
+                    <p class="text-xs text-slate-500 mt-1 uppercase font-bold tracking-wider">Global Reach</p>
+                </button>
+            </div>
+        </div>
+
+        <div>
+            <h2 class="category-label">Global & Sports</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <button onclick="nav('https://asd-tv.vercel.app/')" class="card purple flex items-center gap-5">
+                    <div class="p-4 rounded-xl bg-purple-500/10 text-purple-500">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white">ASD Premium</h3>
+                        <p class="text-sm text-slate-500 font-medium">Edge Optimized Stream</p>
+                    </div>
+                    <div class="ml-auto pulse"></div>
+                </button>
+
+                <button onclick="nav('https://tv.roarzone.info/')" class="card amber">
+                    <div class="mb-4 text-amber-500">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">RoarZone Live</h3>
+                    <p class="text-xs text-slate-500 mt-1 uppercase font-bold tracking-wider">Sports Network</p>
+                </button>
+
+                <button onclick="nav('#')" class="card blue opacity-50 cursor-not-allowed">
+                    <div class="mb-4 text-slate-400">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-400">Add Server</h3>
+                    <p class="text-xs text-slate-600 mt-1 uppercase font-bold tracking-wider">Expand List</p>
+                </button>
+            </div>
+        </div>
+
+        <footer class="mt-20 pt-8 border-t border-white/5 text-center">
+            <p class="text-slate-600 text-xs font-bold tracking-widest uppercase">Powered by MHR Precision Engine</p>
+        </footer>
+    </div>
+
+    <script>
+        function nav(url) {
+            if (url === '#') return;
+            document.body.style.opacity = '0';
+            document.body.style.transform = 'scale(1.1)';
+            setTimeout(() => window.location.href = url, 400);
+        }
+
+        window.onload = () => {
+            setTimeout(() => {
+                const loader = document.getElementById('loader');
+                loader.style.opacity = '0';
+                setTimeout(() => loader.style.display = 'none', 500);
+            }, 800);
+        };
+
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('clock').innerText = now.toLocaleTimeString('en-US', {
+                hour12: false
+            });
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+
+</html>
+<!-- <!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -408,4 +648,4 @@
 
 
 
-</html> -->
+</html> --> -->
