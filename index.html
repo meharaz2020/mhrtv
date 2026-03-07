@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -195,6 +195,220 @@
     <script>
         function nav(url) {
             document.body.style.opacity = '0';
+            setTimeout(() => window.location.href = url, 300);
+        }
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MHRTV | Ultra Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #020408;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg);
+            color: #f1f5f9;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* FIXED: Changed from overflow: hidden to allow mobile scrolling */
+            overflow-x: hidden;
+            overflow-y: auto;
+            padding: 40px 20px;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        /* Cinematic Background Overlay */
+        .overlay {
+            position: fixed; inset: 0; z-index: -1;
+            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.8));
+            pointer-events: none;
+        }
+
+        /* Responsive Grid System */
+        .hub-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr); /* Mobile default */
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Tablet (2 columns) */
+        @media (min-width: 640px) {
+            .hub-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+        }
+
+        /* Desktop/TV (3 columns) */
+        @media (min-width: 1024px) {
+            .hub-grid { grid-template-columns: repeat(3, 1fr); }
+            body { justify-content: center; } /* Only center vertically on large screens */
+        }
+
+        /* Focus Cards */
+        .tv-card {
+            position: relative;
+            background: var(--glass);
+            border: 2px solid var(--border);
+            border-radius: 28px;
+            padding: 30px 20px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            outline: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+        }
+
+        /* Hover/Focus States */
+        .tv-card:hover, .tv-card:focus {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--accent);
+            box-shadow: 0 0 40px -10px var(--accent);
+            z-index: 10;
+        }
+
+        .icon-container {
+            width: 64px;
+            height: 64px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            margin-bottom: 20px;
+            color: var(--accent);
+            transition: 0.5s;
+        }
+
+        .tv-card:hover .icon-container, .tv-card:focus .icon-container {
+            background: var(--accent);
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        /* Status Light */
+        .status-light {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 9px;
+            font-weight: 800;
+            color: #10b981;
+        }
+
+        .pulse-dot {
+            width: 6px; height: 6px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+
+        /* Accent Colors */
+        .blue { --accent: #3b82f6; }
+        .emerald { --accent: #10b981; }
+        .purple { --accent: #a855f7; }
+        .amber { --accent: #f59e0b; }
+
+        /* Typography Scaling */
+        .header-title {
+            font-size: clamp(3rem, 10vw, 5rem); /* Scales based on screen size */
+            font-weight: 900;
+            background: linear-gradient(to bottom, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+
+    <header class="text-center mb-10 md:mb-16">
+        <h1 class="header-title">MHR<span class="text-blue-500">TV</span></h1>
+        <p class="text-slate-500 font-bold tracking-[0.3em] md:tracking-[0.5em] uppercase text-[10px] md:text-xs mt-2">Premium Infrastructure Hub</p>
+    </header>
+
+    <div class="hub-grid">
+        <button onclick="nav('http://103.144.89.251/')" class="tv-card emerald">
+            <div class="status-light"><span class="pulse-dot"></span> ONLINE</div>
+            <div class="icon-container">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2"></path></svg>
+            </div>
+            <h3 class="text-xl md:text-2xl font-extrabold text-white">Main Server</h3>
+            <p class="text-slate-400 mt-2 text-sm">Primary Stream Uplink</p>
+        </button>
+
+        <button onclick="nav('https://mhrhdtv.vercel.app/')" class="tv-card blue">
+            <div class="status-light"><span class="pulse-dot"></span> ONLINE</div>
+            <div class="icon-container">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9"></path></svg>
+            </div>
+            <h3 class="text-xl md:text-2xl font-extrabold text-white">Bangladesh TV</h3>
+            <p class="text-slate-400 mt-2 text-sm">Regional Content Node</p>
+        </button>
+
+        <button onclick="nav('https://obiramtvlive.pages.dev/')" class="tv-card purple">
+            <div class="status-light"><span class="pulse-dot"></span> ONLINE</div>
+            <div class="icon-container">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            </div>
+            <h3 class="text-xl md:text-2xl font-extrabold text-white">Obiram TV</h3>
+            <p class="text-slate-400 mt-2 text-sm">Core Infrastructure</p>
+        </button>
+
+        <button onclick="nav('https://asd-tv.vercel.app/')" class="tv-card amber">
+            <div class="icon-container">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+            </div>
+            <h3 class="text-xl md:text-2xl font-extrabold text-white">ASD Premium</h3>
+            <p class="text-slate-400 mt-2 text-sm">Encrypted Edge Node</p>
+        </button>
+
+        <button onclick="nav('https://tv.roarzone.info/')" class="tv-card blue">
+            <div class="icon-container">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+            </div>
+            <h3 class="text-xl md:text-2xl font-extrabold text-white">RoarZone Live</h3>
+            <p class="text-slate-400 mt-2 text-sm">Sports Network Hub</p>
+        </button>
+    </div>
+
+    <footer class="mt-auto pt-16 pb-8 opacity-30 text-center">
+        <p class="text-[10px] font-bold tracking-[0.6em] text-white uppercase">MHR Precision Engine v5.0</p>
+    </footer>
+
+    <script>
+        function nav(url) {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.3s ease';
             setTimeout(() => window.location.href = url, 300);
         }
     </script>
