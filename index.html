@@ -203,6 +203,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -210,12 +211,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        :root {
+         :root {
             --bg: #020408;
             --glass: rgba(255, 255, 255, 0.03);
             --border: rgba(255, 255, 255, 0.1);
         }
-
+        
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg);
@@ -228,41 +229,50 @@
             overflow-x: hidden;
             overflow-y: auto;
             padding: 40px 20px;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 40%);
+            background-image: radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 40%);
             background-attachment: fixed;
         }
-
         /* Cinematic Background Overlay */
+        
         .overlay {
-            position: fixed; inset: 0; z-index: -1;
-            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.8));
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.8));
             pointer-events: none;
         }
-
         /* Responsive Grid System */
+        
         .hub-grid {
             display: grid;
-            grid-template-columns: repeat(1, 1fr); /* Mobile default */
+            grid-template-columns: repeat(1, 1fr);
+            /* Mobile default */
             gap: 20px;
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
         }
-
         /* Tablet (2 columns) */
+        
         @media (min-width: 640px) {
-            .hub-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+            .hub-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
         }
-
         /* Desktop/TV (3 columns) */
+        
         @media (min-width: 1024px) {
-            .hub-grid { grid-template-columns: repeat(3, 1fr); }
-            body { justify-content: center; } /* Only center vertically on large screens */
+            .hub-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            body {
+                justify-content: center;
+            }
+            /* Only center vertically on large screens */
         }
-
         /* Focus Cards */
+        
         .tv-card {
             position: relative;
             background: var(--glass);
@@ -280,16 +290,17 @@
             text-align: center;
             width: 100%;
         }
-
         /* Hover/Focus States */
-        .tv-card:hover, .tv-card:focus {
+        
+        .tv-card:hover,
+        .tv-card:focus {
             transform: scale(1.05);
             background: rgba(255, 255, 255, 0.08);
             border-color: var(--accent);
             box-shadow: 0 0 40px -10px var(--accent);
             z-index: 10;
         }
-
+        
         .icon-container {
             width: 64px;
             height: 64px;
@@ -302,14 +313,15 @@
             color: var(--accent);
             transition: 0.5s;
         }
-
-        .tv-card:hover .icon-container, .tv-card:focus .icon-container {
+        
+        .tv-card:hover .icon-container,
+        .tv-card:focus .icon-container {
             background: var(--accent);
             color: white;
             transform: rotateY(180deg);
         }
-
         /* Status Light */
+        
         .status-light {
             position: absolute;
             top: 15px;
@@ -321,25 +333,48 @@
             font-weight: 800;
             color: #10b981;
         }
-
+        
         .pulse-dot {
-            width: 6px; height: 6px;
+            width: 6px;
+            height: 6px;
             background: #10b981;
             border-radius: 50%;
             animation: pulse 2s infinite;
         }
-
-        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
-
+        
+        @keyframes pulse {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.3;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
         /* Accent Colors */
-        .blue { --accent: #3b82f6; }
-        .emerald { --accent: #10b981; }
-        .purple { --accent: #a855f7; }
-        .amber { --accent: #f59e0b; }
-
+        
+        .blue {
+            --accent: #3b82f6;
+        }
+        
+        .emerald {
+            --accent: #10b981;
+        }
+        
+        .purple {
+            --accent: #a855f7;
+        }
+        
+        .amber {
+            --accent: #f59e0b;
+        }
         /* Typography Scaling */
+        
         .header-title {
-            font-size: clamp(3rem, 10vw, 5rem); /* Scales based on screen size */
+            font-size: clamp(3rem, 10vw, 5rem);
+            /* Scales based on screen size */
             font-weight: 900;
             background: linear-gradient(to bottom, #fff, #94a3b8);
             -webkit-background-clip: text;
@@ -348,6 +383,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="overlay"></div>
 
@@ -372,6 +408,15 @@
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9"></path></svg>
             </div>
             <h3 class="text-xl md:text-2xl font-extrabold text-white">Bangladesh TV</h3>
+            <p class="text-slate-400 mt-2 text-sm">Regional Content Node</p>
+        </button>
+
+        <button onclick="nav('https://bongoflix.rf.gd/mirror')" class="tv-card blue">
+            <div class="status-light"><span class="pulse-dot"></span> ONLINE</div>
+            <div class="icon-container">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9"></path></svg>
+            </div>
+            <h3 class="text-xl md:text-2xl font-extrabold text-white">Bangladesh TV 2.0</h3>
             <p class="text-slate-400 mt-2 text-sm">Regional Content Node</p>
         </button>
 
@@ -400,8 +445,8 @@
             <p class="text-slate-400 mt-2 text-sm">Sports Network Hub</p>
         </button>
 
-        
-<button onclick="nav('http://naturalbd.com')" class="tv-card purple">
+
+        <button onclick="nav('http://naturalbd.com')" class="tv-card purple">
             <div class="status-light"><span class="pulse-dot"></span> SECURE</div>
             <div class="icon-container">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -411,7 +456,7 @@
             <h3 class="text-xl md:text-2xl font-extrabold text-white">Natural BD</h3>
             <p class="text-slate-400 mt-2 text-sm">Account Authentication</p>
         </button>
-        
+
     </div>
 
     <footer class="mt-auto pt-16 pb-8 opacity-30 text-center">
@@ -426,4 +471,5 @@
         }
     </script>
 </body>
+
 </html>
