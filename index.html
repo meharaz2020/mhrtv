@@ -201,7 +201,7 @@
 </body>
 </html> -->
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -420,7 +420,7 @@
             <p class="text-slate-400 mt-2 text-sm">Regional Content Node</p>
         </button> -->
 
-        <button onclick="nav('https://obiramtvlive.pages.dev/')" class="tv-card purple">
+        <!-- <button onclick="nav('https://obiramtvlive.pages.dev/')" class="tv-card purple">
             <div class="status-light"><span class="pulse-dot"></span> ONLINE</div>
             <div class="icon-container">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
@@ -443,6 +443,16 @@
             <h3 class="text-xl md:text-2xl font-extrabold text-white">Sports Live 2</h3>
             <p class="text-slate-400 mt-2 text-sm">Encrypted Edge Node</p>
         </button>
+<button onclick="nav('https://genzbd.me/')" class="tv-card amber">
+            <div class="icon-container">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+            </div>
+            <h3 class="text-xl md:text-2xl font-extrabold text-white">Sports Live 2</h3>
+            <p class="text-slate-400 mt-2 text-sm">Encrypted Edge Node</p>
+        </button>
+ -->
+
+        
         <!-- <button onclick="nav('https://tv.roarzone.info/')" class="tv-card blue">
             <div class="icon-container">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
@@ -451,7 +461,7 @@
             <p class="text-slate-400 mt-2 text-sm">Sports Network Hub</p>
         </button> -->
 
-
+<!-- 
         <button onclick="nav('http://naturalbd.com')" class="tv-card purple">
             <div class="status-light"><span class="pulse-dot"></span> SECURE</div>
             <div class="icon-container">
@@ -478,4 +488,523 @@
     </script>
 </body>
 
+</html> --> 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MHRTV | Ultra Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #04060a;
+    --surface: #0c0f16;
+    --surface2: #12161f;
+    --border: rgba(255,255,255,0.07);
+    --border-hover: rgba(255,255,255,0.18);
+    --text: #eef0f5;
+    --muted: #5a6070;
+    --blue: #3d8ef5;
+    --blue-glow: rgba(61,142,245,0.18);
+    --emerald: #10d98b;
+    --emerald-glow: rgba(16,217,139,0.18);
+    --purple: #b06ef5;
+    --purple-glow: rgba(176,110,245,0.18);
+    --amber: #f5a623;
+    --amber-glow: rgba(245,166,35,0.18);
+    --red: #f55a5a;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* ─── Noise texture overlay ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 200px;
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  /* ─── Ambient orbs ─── */
+  .orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(120px);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .orb-1 { width: 600px; height: 600px; background: rgba(61,142,245,0.06); top: -200px; left: -150px; }
+  .orb-2 { width: 500px; height: 500px; background: rgba(176,110,245,0.07); bottom: -100px; right: -100px; }
+  .orb-3 { width: 300px; height: 300px; background: rgba(16,217,139,0.05); top: 40%; left: 50%; transform: translateX(-50%); }
+
+  /* ─── Scanline effect for TV feel ─── */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.06) 2px,
+      rgba(0,0,0,0.06) 4px
+    );
+    pointer-events: none;
+    z-index: 9998;
+  }
+
+  /* ─── Layout ─── */
+  .page {
+    position: relative;
+    z-index: 1;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 60px 32px 80px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  /* ─── Header ─── */
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 64px;
+    animation: fadeDown 0.8s cubic-bezier(.22,.61,.36,1) both;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--emerald); animation: breathe 2.5s ease-in-out infinite; }
+
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(64px, 14vw, 130px);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -6px;
+    color: var(--text);
+    position: relative;
+  }
+  .logo .accent {
+    color: transparent;
+    -webkit-text-stroke: 2px var(--blue);
+    position: relative;
+  }
+  .logo .accent::after {
+    content: 'TV';
+    position: absolute;
+    inset: 0;
+    color: var(--blue);
+    clip-path: inset(0 100% 0 0);
+    animation: reveal-text 1.2s 0.4s cubic-bezier(.22,.61,.36,1) forwards;
+  }
+
+  .tagline {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.35em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-top: 20px;
+  }
+
+  /* ─── Grid ─── */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  /* ─── Cards ─── */
+  .card {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 28px;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    overflow: hidden;
+    transition: transform 0.35s cubic-bezier(.22,.61,.36,1), border-color 0.3s, background 0.3s;
+    animation: fadeUp 0.7s cubic-bezier(.22,.61,.36,1) both;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    opacity: 0;
+    transition: opacity 0.35s;
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+    border-color: var(--border-hover);
+    background: var(--surface2);
+  }
+  .card:hover::before { opacity: 1; }
+
+  /* accent glow per color */
+  .card.blue::before  { background: radial-gradient(ellipse at 20% 0%, var(--blue-glow), transparent 70%); }
+  .card.emerald::before { background: radial-gradient(ellipse at 20% 0%, var(--emerald-glow), transparent 70%); }
+  .card.purple::before { background: radial-gradient(ellipse at 20% 0%, var(--purple-glow), transparent 70%); }
+  .card.amber::before { background: radial-gradient(ellipse at 20% 0%, var(--amber-glow), transparent 70%); }
+  .card.blue:hover  { border-color: rgba(61,142,245,0.5); }
+  .card.emerald:hover { border-color: rgba(16,217,139,0.5); }
+  .card.purple:hover { border-color: rgba(176,110,245,0.5); }
+  .card.amber:hover { border-color: rgba(245,166,35,0.5); }
+
+  /* Staggered animation delay */
+  .card:nth-child(1) { animation-delay: 0.05s; }
+  .card:nth-child(2) { animation-delay: 0.12s; }
+  .card:nth-child(3) { animation-delay: 0.19s; }
+  .card:nth-child(4) { animation-delay: 0.26s; }
+  .card:nth-child(5) { animation-delay: 0.33s; }
+  .card:nth-child(6) { animation-delay: 0.40s; }
+  .card:nth-child(7) { animation-delay: 0.47s; }
+
+  /* top line accent */
+  .card-line {
+    position: absolute;
+    top: 0; left: 24px; right: 24px;
+    height: 1px;
+    border-radius: 1px;
+    opacity: 0;
+    transition: opacity 0.35s;
+  }
+  .card:hover .card-line { opacity: 1; }
+  .card.blue  .card-line { background: linear-gradient(90deg, transparent, var(--blue), transparent); }
+  .card.emerald .card-line { background: linear-gradient(90deg, transparent, var(--emerald), transparent); }
+  .card.purple .card-line { background: linear-gradient(90deg, transparent, var(--purple), transparent); }
+  .card.amber .card-line { background: linear-gradient(90deg, transparent, var(--amber), transparent); }
+
+  /* status */
+  .status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .status-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    animation: breathe 2s ease-in-out infinite;
+  }
+  .blue  .status { color: var(--blue); }   .blue  .status-dot { background: var(--blue); }
+  .emerald .status { color: var(--emerald); } .emerald .status-dot { background: var(--emerald); }
+  .purple .status { color: var(--purple); }  .purple .status-dot { background: var(--purple); }
+  .amber .status { color: var(--amber); }   .amber .status-dot { background: var(--amber); }
+
+  /* icon */
+  .icon-wrap {
+    width: 52px; height: 52px;
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 18px;
+    font-size: 22px;
+    position: relative;
+    transition: transform 0.3s;
+  }
+  .card:hover .icon-wrap { transform: scale(1.1) rotate(-4deg); }
+  .blue  .icon-wrap { background: rgba(61,142,245,0.1); border: 1px solid rgba(61,142,245,0.25); color: var(--blue); }
+  .emerald .icon-wrap { background: rgba(16,217,139,0.1); border: 1px solid rgba(16,217,139,0.25); color: var(--emerald); }
+  .purple .icon-wrap { background: rgba(176,110,245,0.1); border: 1px solid rgba(176,110,245,0.25); color: var(--purple); }
+  .amber .icon-wrap { background: rgba(245,166,35,0.1); border: 1px solid rgba(245,166,35,0.25); color: var(--amber); }
+
+  /* card text */
+  .card-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 4px;
+    letter-spacing: -0.5px;
+  }
+  .card-desc {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
+  /* arrow */
+  .card-arrow {
+    position: absolute;
+    bottom: 24px; right: 24px;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    color: var(--muted);
+    transition: all 0.3s;
+    opacity: 0;
+    transform: translateX(-6px);
+  }
+  .card:hover .card-arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .card.blue:hover  .card-arrow { border-color: rgba(61,142,245,0.5); color: var(--blue); }
+  .card.emerald:hover .card-arrow { border-color: rgba(16,217,139,0.5); color: var(--emerald); }
+  .card.purple:hover .card-arrow { border-color: rgba(176,110,245,0.5); color: var(--purple); }
+  .card.amber:hover .card-arrow { border-color: rgba(245,166,35,0.5); color: var(--amber); }
+
+  /* ─── Divider label ─── */
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    animation: fadeDown 0.6s 0.3s both;
+  }
+  .section-label span {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .section-label::before, .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+  .section-label::before { display: none; }
+
+  /* ─── Footer ─── */
+  footer {
+    margin-top: auto;
+    padding-top: 56px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .footer-logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+  .footer-logo span { color: var(--blue); }
+  .footer-line { width: 40px; height: 1px; background: var(--border); }
+  .footer-copy { font-size: 10px; color: rgba(90,96,112,0.6); letter-spacing: 0.2em; text-transform: uppercase; }
+
+  /* ─── Animations ─── */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes breathe {
+    0%,100% { opacity: 1; }
+    50% { opacity: 0.35; }
+  }
+  @keyframes reveal-text {
+    to { clip-path: inset(0 0% 0 0); }
+  }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 600px) {
+    .page { padding: 40px 18px 60px; }
+    header { margin-bottom: 40px; }
+    .grid { grid-template-columns: 1fr; }
+    .logo { letter-spacing: -3px; }
+  }
+
+  /* ─── TV focus ring ─── */
+  .card:focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 4px;
+  }
+
+  /* ─── Page fade out transition ─── */
+  .page-fade { opacity: 0; transition: opacity 0.4s ease; }
+</style>
+</head>
+<body>
+
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+<div class="page" id="page">
+
+  <header>
+    <div class="badge">
+      <span class="badge-dot"></span>
+      All systems operational
+    </div>
+    <div class="logo">MHR<span class="accent">TV</span></div>
+    <p class="tagline">Premium Infrastructure Hub &nbsp;·&nbsp; v5.0</p>
+  </header>
+
+  <div class="section-label">
+    <span>Stream Nodes</span>
+    <div style="flex:1;height:1px;background:var(--border);"></div>
+  </div>
+
+  <div class="grid">
+
+    <a href="http://10.90.90.198/" class="card emerald" onclick="nav(event)">
+      <div class="card-line"></div>
+      <div class="status"><span class="status-dot"></span> Online</div>
+      <div class="icon-wrap">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      </div>
+      <p class="card-name">Main Server</p>
+      <p class="card-desc">Primary Stream Uplink</p>
+      <div class="card-arrow">→</div>
+    </a>
+
+    <a href="https://mhrhdtv.vercel.app/" class="card blue" onclick="nav(event)">
+      <div class="card-line"></div>
+      <div class="status"><span class="status-dot"></span> Online</div>
+      <div class="icon-wrap">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+      </div>
+      <p class="card-name">Bangladesh TV</p>
+      <p class="card-desc">Regional Content Node</p>
+      <div class="card-arrow">→</div>
+    </a>
+
+    <a href="https://obiramtvlive.pages.dev/" class="card purple" onclick="nav(event)">
+      <div class="card-line"></div>
+      <div class="status"><span class="status-dot"></span> Online</div>
+      <div class="icon-wrap">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+      </div>
+      <p class="card-name">Obiram TV</p>
+      <p class="card-desc">Core Infrastructure</p>
+      <div class="card-arrow">→</div>
+    </a>
+
+    <a href="https://durbinlive.live/" class="card amber" onclick="nav(event)">
+      <div class="card-line"></div>
+      <div class="status"><span class="status-dot"></span> Live</div>
+      <div class="icon-wrap">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+      </div>
+      <p class="card-name">Durbin Sports Live</p>
+      <p class="card-desc">Encrypted Edge Node</p>
+      <div class="card-arrow">→</div>
+    </a>
+
+    <a href="https://yosin-tv.org/" class="card amber" onclick="nav(event)">
+      <div class="card-line"></div>
+      <div class="status"><span class="status-dot"></span> Live</div>
+      <div class="icon-wrap">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+      </div>
+      <p class="card-name">Sports Live 2</p>
+      <p class="card-desc">Encrypted Edge Node</p>
+      <div class="card-arrow">→</div>
+    </a>
+
+    <a href="https://genzbd.me/" class="card amber" onclick="nav(event)">
+      <div class="card-line"></div>
+      <div class="status"><span class="status-dot"></span> Live</div>
+      <div class="icon-wrap">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 9V7a2 2 0 00-2-2H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2v-2"/><path d="M22 12H16l-2 2-2-2H6"/></svg>
+      </div>
+      <p class="card-name">GenZ BD</p>
+      <p class="card-desc">Sports Stream Node</p>
+      <div class="card-arrow">→</div>
+    </a>
+
+    <a href="http://naturalbd.com" class="card purple" onclick="nav(event)">
+      <div class="card-line"></div>
+      <div class="status"><span class="status-dot"></span> Secure</div>
+      <div class="icon-wrap">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+      </div>
+      <p class="card-name">Natural BD</p>
+      <p class="card-desc">Account Authentication</p>
+      <div class="card-arrow">→</div>
+    </a>
+
+  </div>
+
+  <footer>
+    <div class="footer-logo">MHR<span>TV</span></div>
+    <div class="footer-line"></div>
+    <p class="footer-copy">Precision Engine v5.0 &nbsp;·&nbsp; All Rights Reserved</p>
+  </footer>
+
+</div>
+
+<script>
+  function nav(e) {
+    e.preventDefault();
+    const url = e.currentTarget.href;
+    document.getElementById('page').classList.add('page-fade');
+    setTimeout(() => { window.location.href = url; }, 380);
+  }
+
+  // TV remote D-pad keyboard nav
+  document.addEventListener('keydown', e => {
+    const cards = Array.from(document.querySelectorAll('.card'));
+    const focused = document.activeElement;
+    const idx = cards.indexOf(focused);
+    if (idx === -1) { if (e.key === 'ArrowDown' || e.key === 'ArrowRight') cards[0]?.focus(); return; }
+    const cols = Math.round(document.querySelector('.grid').offsetWidth / cards[0].offsetWidth);
+    const map = { ArrowRight: 1, ArrowLeft: -1, ArrowDown: cols, ArrowUp: -cols };
+    if (map[e.key] !== undefined) {
+      e.preventDefault();
+      const next = cards[Math.min(Math.max(idx + map[e.key], 0), cards.length - 1)];
+      next?.focus();
+    }
+    if (e.key === 'Enter' && focused.tagName === 'A') focused.click();
+  });
+</script>
+</body>
 </html>
+
